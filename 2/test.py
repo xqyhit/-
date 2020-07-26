@@ -26,3 +26,15 @@ def update():
             # break while loop when end of this episode
             if done:
                 break
+
+    # end of game
+    print('game over')
+    env.destory()
+
+
+if __name__ == "__main__":
+    env = Maze()
+    RL = QLearningTable(actions=list(range(env.n_actions)))
+
+    env.after(100, update)
+    env.mainloop()
